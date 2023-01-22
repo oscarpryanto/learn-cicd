@@ -1,20 +1,26 @@
-name: DEPLOY
-on:
-  push:
-    branches:
-    - master
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: rsync deployments
-      uses: burnett01/rsync-deployments@5.2.1
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
       with:
-        switches: -avzr --delete
-        path: src/
-        remote_path: /home/oaseasmy/learn-ci-cd.oaseas.my.id 
-        remote_host: oaseas.my.id
-        remote_user: oaseasmy
-        remote_key: ${{ secrets.PRIVATE_KEY }}
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: ftp.oaseas.my.id
+        username: ftp_cicd@learn-ci-cd.oaseas.my.id
+        password: ${{ secrets.password }}
