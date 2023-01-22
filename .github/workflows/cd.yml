@@ -24,3 +24,5 @@ jobs:
         server: ftp.oaseas.my.id
         username: ftp_cicd@learn-ci-cd.oaseas.my.id
         password: ${{ secrets.PASSWORD }}
+        dangerous-clean-slate: true
+        local-dir: ./build/
