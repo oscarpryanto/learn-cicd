@@ -21,8 +21,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: ftp.oaseas.my.id
-        username: ftp_cicd@learn-ci-cd.oaseas.my.id
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.PASSWORD }}
         dangerous-clean-slate: true
         local-dir: ./build/
