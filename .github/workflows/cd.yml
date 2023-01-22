@@ -23,4 +23,4 @@ jobs:
       with:
         server: ftp.oaseas.my.id
         username: ftp_cicd@learn-ci-cd.oaseas.my.id
-        password: ${{ secrets.password }}
+        password: ${{ secrets.PASSWORD }}
