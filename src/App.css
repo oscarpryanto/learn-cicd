@@ -28,6 +28,15 @@
   color: #61dafb;
 }
 
+/* .container-register {
+  background-image: url("./image/6.png");
+  height: 10vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 30px;
+} */
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
